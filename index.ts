@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.201.0/http/server.ts";
 const logcb = (...args: any[]) => console.log.bind(globalThis, ...args);
 const errcb = (...args: any[]) => console.error.bind(globalThis, ...args);
 
-const uuid = (Deno.env.get("UUID") || "d82aae53-a582-4d7b-889a-60ea535f3219").replaceAll("-", "");
+const uuid = (Deno.env.get("UUID") || "a530341a-2b1e-4e2f-b196-bf2aca5b755f").replaceAll("-", "");
 const port = parseInt(Deno.env.get("PORT") || "30000");
 
 console.log(`WebSocket server is running on :${port}`);
