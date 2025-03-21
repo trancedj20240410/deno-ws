@@ -12,7 +12,7 @@ console.log(`WebSocket server is running on :${port}`);
 serve(async (req) => {
   // 检查是否是 WebSocket 请求
   if (req.headers.get("upgrade") !== "websocket") {
-    return new Response("Hello word", { status: 400 });
+    return new Response("Hello world", { status: 400 });
   }
 
   // 创建 WebSocket 连接
