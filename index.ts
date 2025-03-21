@@ -128,7 +128,15 @@ serve(async (req) => {
           console.error("发送错误状态或关闭 WebSocket 时出错:", closeError);
         }
       }
-    };
+    } catch (error) {
+      console.error("WebSocket 消息处理错误:", error);
+      try {
+        ws.close(1011, "内部服务器错误");
+      } catch (closeError) {
+        console.error("关闭 WebSocket 时出错:", closeError);
+      }
+    }
+  }; // 添加了缺失的括号
   
     ws.onclose = (event) => {
       console.log(`WebSocket 连接关闭: 代码=${event.code}, 原因='${event.reason}'`);
@@ -145,6 +153,6 @@ serve(async (req) => {
         console.error("尝试关闭错误的 WebSocket 连接时出错:", closeError);
       }
     };
-  
+
     return response;
 }, { port });
